@@ -10,16 +10,12 @@ class Triangle
 
   def kind
     validate_triangle
-    if self.side1 == self.side2 && self.side2 == self.side3 && self.side1 == self.side3
+    if @side1 == @side2 && @side2 == @side3 && @side1 == @side3
       return :equilateral
-    elsif self.side1 == self.side2 || self.side2 == self.side3 || self.side1 == self.side3
+    elsif @side1 == @side2 || @side2 == @side3 || @side1 == @side3
       return :isosceles
-    else
-      self.side1 != self.side2 && self.side2 != self.side3 && self.side1 != self.side3
+    elsif @side1 != @side2 && @side2 != @side3 && @side1 != @side3
       return :scalene
-      # elsif self.side1 == 0 || self.side2 == 0 || self.side3 == 0
-      #   raise TriangleError
-      #  puts error.message
     end
   end
 
@@ -38,9 +34,5 @@ class Triangle
   end
 
   class TriangleError < StandardError
-    # triangle error code
-    # def message
-    #   "error"
-    # end
   end
 end
